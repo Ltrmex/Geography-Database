@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html 	xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://xmlns.jcp.org/jsf/html"
+	xmlns:f="http://xmlns.jcp.org/jsf/core">
+	<h:head>
+		<title>Add City</title>
+	</h:head>
+	<h:body>
+		<h3>Add City</h3>
+		<h:messages globalOnly="true" styleClass="error"/>
+		<h:form>
+			City Code:
+			<h:inputText type="text" id="cityCode"
+				required="true" requiredMessage="City code is mandatory" value="#{city.cityCode}">	
+			</h:inputText>
+			<h:message for="cityCode"/>
+			<br/><br/>
+			Country Code:
+			<h:inputText type="text" id="countryCode"
+				required="true" requiredMessage="Country code is mandatory" value="#{city.countryCode}"/>
+			<h:message for="countryCode"/>
+			<br/><br/>
+			Region Code:
+			<h:inputText type="text" id="regionCode"
+				required="true" requiredMessage="Region code is mandatory" value="#{city.regionCode}"/>
+			<h:message for="regionCode"/>
+			<br/><br/>
+			Name:
+			<h:inputText type="text" id="name"
+				required="true" requiredMessage="Name code is mandatory" value="#{city.cityName}"/>
+			<h:message for="name"/>
+			<br/><br/>
+			Population:
+			<h:inputText type="number" value="#{city.population}"/>
+			<br/><br/>
+			By The Sea: 
+			<h:selectOneMenu value="#{city.byTheSea}">
+				<f:selectItem itemValue="false" itemLabel="False"/>
+				<f:selectItem itemValue="true" itemLabel="True"/>
+			</h:selectOneMenu>
+			<br/><br/>
+			Area (KM):
+			<h:inputText type="number" value="#{city.area}"/>
+			<br/><br/>
+			<h:commandButton value = "Add" action = "#{cityController.processNewCity(city.cityCode, city.countryCode, city.regionCode, city.cityName, city.population, city.byTheSea, city.area)}"/>
+			<br/>		
+		</h:form>
+		<h:link value="Home" outcome="index"/>
+		<em/>
+		<h:link value="City" outcome="list_cities"/>
+	</h:body>
+</html>

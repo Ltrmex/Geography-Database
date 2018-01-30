@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://xmlns.jcp.org/jsf/html"
+	xmlns:f="http://xmlns.jcp.org/jsf/core">
+	<h:head>
+		<title>Find All Cities</title>
+	</h:head>
+	<h:body>
+		<f:metadata>
+			<f:event type="preRenderView" 
+				listener="#{findAllCitiesController.loadCities}"/>
+		</f:metadata>
+		<h:outputStylesheet library="css" name="tables.css"  />
+		<h:messages globalOnly="true" styleClass="error"/>
+		<h:dataTable value="#{findAllCitiesController.foundCities}" var="c"
+			styleClass="table" 
+			headerClass="table-header"
+			rowClasses="table-odd-row,table-even-row">
+			<h:column>
+				<f:facet name="header">City Code</f:facet>
+				#{c.cityCode}
+			</h:column>
+			<h:column>
+				<f:facet name="header">Country Code</f:facet>
+				#{c.countryCode}
+			</h:column>
+			<h:column>
+				<f:facet name="header">Region Code</f:facet>
+				#{c.regionCode}
+			</h:column>
+			<h:column>
+				<f:facet name="header">City Name</f:facet>
+				#{c.cityName}
+			</h:column>
+			<h:column>
+				<f:facet name="header">Population</f:facet>
+				#{c.population}
+			</h:column>
+			<h:column>
+				<f:facet name="header">By The Sea</f:facet>
+				#{c.byTheSea}
+			</h:column>
+			<h:column>
+				<f:facet name="header">Area</f:facet>
+				#{c.area}
+			</h:column>
+		</h:dataTable>
+		<h:link value="Home" outcome="index"/>
+		<h:link value="Search" outcome="find_cities"/>
+	</h:body>
+</html>

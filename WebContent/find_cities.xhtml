@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://xmlns.jcp.org/jsf/html"
+	xmlns:f="http://xmlns.jcp.org/jsf/core">
+	<h:head>
+		<title>Find All Cities</title>
+	</h:head>
+	<h:body>
+		<h3>Find All Cities</h3>
+		<h:messages globalOnly="true" styleClass="error"/>
+		<h:form>
+			Population:
+			<h:selectOneMenu value="#{city.cityCode}">
+				<f:selectItem itemValue="Greater Than" itemLabel="Greater Than"/>
+				<f:selectItem itemValue="Less Than" itemLabel="Less Than"/>
+				<f:selectItem itemValue="Equal To" itemLabel="Equal To"/>
+			</h:selectOneMenu>
+			<br/><br/>
+			<h:inputText type="number" value="#{city.population}"/>
+			<br/><br/>
+			Country Code:
+			<h:inputText type="text" value="#{city.countryCode}"/>
+			<br/><br/>
+			By The Sea: 
+			<h:selectOneMenu value="#{city.byTheSea}">
+				<f:selectItem itemValue="false" itemLabel="False"/>
+				<f:selectItem itemValue="true" itemLabel="True"/>
+			</h:selectOneMenu>
+			<br/><br/>
+			<h:commandButton value = "Find" action = "#{findAllCitiesController.setCities(city.cityCode, city.population, city.countryCode, city.byTheSea)}"/>
+			<br/>		
+		</h:form>
+		<h:link value="Home" outcome="index"/>
+	</h:body>
+</html>
